@@ -1,0 +1,71 @@
+<operator>
+  <name>org.esa.snap.core.gpf.operators.tooladapter.sen2vm</name>
+  <operatorClass>org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterOp</operatorClass>
+  <alias>sen2vm</alias>
+  <label>geo localization</label>
+  <version>1.0.0</version>
+  <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
+  <authors>CSGroup</authors>
+  <copyright>unknow</copyright>
+  <internal>false</internal>
+  <autoWriteSuppressed>false</autoWriteSuppressed>
+  <menuLocation>Menu/Optical/Geometric</menuLocation>
+  <preprocessTool>true</preprocessTool>
+  <writeForProcessing>false</writeForProcessing>
+  <mainToolFileLocation>$SEN2VM_JRE</mainToolFileLocation>
+  <workingDir>$java.io.tmpdir</workingDir>
+  <template type="file">
+    <file>sen2vm-template.vm</file>
+  </template>
+  <variables>
+    <variable>
+      <key>SEN2VM_JRE</key>
+      <value>$JAVA_HOME</value>
+      <isShared>false</isShared>
+    </variable>
+    <variable>
+      <key>SEN2VM_JAR_EXE</key>
+      <value>/home/florian/snap_dev/sen2vm-core/target/sen2vm-core-1.0-SNAPSHOT.jar</value>
+      <isShared>false</isShared>
+    </variable>
+  </variables>
+  <parameters>
+    <parameter>
+      <name>ProductPath</name>
+      <dataType>java.io.File</dataType>
+      <description>Product Path</description>
+      <valueSet/>
+      <notNull>true</notNull>
+      <notEmpty>true</notEmpty>
+      <parameterType>RegularParameter</parameterType>
+    </parameter>
+    <parameter>
+      <name>targetProductFile</name>
+      <dataType>java.io.File</dataType>
+      <description>Output file</description>
+      <valueSet/>
+      <notNull>false</notNull>
+      <notEmpty>false</notEmpty>
+      <parameterType>RegularParameter</parameterType>
+    </parameter>
+  </parameters>
+  <source>user</source>
+  <isSystem>false</isSystem>
+  <isHandlingOutputName>true</isHandlingOutputName>
+  <windowsBundle>
+    <bundleType>NONE</bundleType>
+    <bundleLocation>REMOTE</bundleLocation>
+  </windowsBundle>
+  <linuxBundle>
+    <bundleType>NONE</bundleType>
+    <bundleLocation>REMOTE</bundleLocation>
+  </linuxBundle>
+  <macosxBundle>
+    <bundleType>NONE</bundleType>
+    <bundleLocation>REMOTE</bundleLocation>
+  </macosxBundle>
+  <sourceProductDescriptors/>
+  <targetPropertyDescriptors/>
+  <numSourceProducts>0</numSourceProducts>
+  <templateType>VELOCITY</templateType>
+</operator>
