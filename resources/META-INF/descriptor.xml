@@ -10,7 +10,7 @@
   <internal>false</internal>
   <autoWriteSuppressed>false</autoWriteSuppressed>
   <menuLocation>Menu/Optical/Geometric</menuLocation>
-  <preprocessTool>true</preprocessTool>
+  <preprocessTool>false</preprocessTool>
   <writeForProcessing>false</writeForProcessing>
   <mainToolFileLocation>$SEN2VM_JRE</mainToolFileLocation>
   <workingDir>$java.io.tmpdir</workingDir>
