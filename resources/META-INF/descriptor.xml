@@ -6,34 +6,57 @@
   <version>1.0.0</version>
   <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
   <authors>CSGroup</authors>
-  <copyright>unknow</copyright>
+  <copyright></copyright>
   <internal>false</internal>
   <autoWriteSuppressed>false</autoWriteSuppressed>
   <menuLocation>Menu/Optical/Geometric</menuLocation>
-  <preprocessTool>true</preprocessTool>
+  <preprocessTool>false</preprocessTool>
   <writeForProcessing>false</writeForProcessing>
   <mainToolFileLocation>$SEN2VM_JRE</mainToolFileLocation>
-  <workingDir>$java.io.tmpdir</workingDir>
+  <workingDir>$SEN2VM_HOME</workingDir>
   <template type="file">
     <file>sen2vm-template.vm</file>
   </template>
   <variables>
     <variable>
-      <key>SEN2VM_JRE</key>
-      <value>$JAVA_HOME</value>
+      <key>SEN2VM_PLUGIN_DIR</key>
+      <value>$HOME/.snap/auxdata/tool-adapters/sen2vm-snap-plugin/</value>
       <isShared>false</isShared>
     </variable>
     <variable>
-      <key>SEN2VM_JAR_EXE</key>
-      <value>/home/florian/snap_dev/sen2vm-core/target/sen2vm-core-1.0-SNAPSHOT.jar</value>
+      <key>SEN2VM_HOME</key>
+      <value>$HOME/.snap/var/cache/</value>
+      <isShared>false</isShared>
+    </variable>
+    <osvariable>
+      <key>SEN2VM_JRE</key>
+      <value>$HOME/esa-snap/jre/bin/java</value>
+      <isShared>false</isShared>
+      <windows></windows>
+      <linux>$HOME/esa-snap/jre/bin/java</linux>
+      <macosx></macosx>
+      <isTransient>false</isTransient>
+    </osvariable>
+    <osvariable>
+      <key>SEN2VM_JAR</key>
+      <value>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0-SNAPSHOT.jar</value>
+      <isShared>false</isShared>
+      <windows></windows>
+      <linux>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0-SNAPSHOT.jar</linux>
+      <macosx></macosx>
+      <isTransient>false</isTransient>
+    </osvariable>
+    <variable>
+      <key>HOME</key>
+      <value>/home/florian</value>
       <isShared>false</isShared>
     </variable>
   </variables>
   <parameters>
     <parameter>
-      <name>ProductPath</name>
+      <name>configurationFile</name>
       <dataType>java.io.File</dataType>
-      <description>Product Path</description>
+      <description>Configuration Path</description>
       <valueSet/>
       <notNull>true</notNull>
       <notEmpty>true</notEmpty>
@@ -57,8 +80,29 @@
     <bundleLocation>REMOTE</bundleLocation>
   </windowsBundle>
   <linuxBundle>
-    <bundleType>NONE</bundleType>
+    <bundleType>ZIP</bundleType>
     <bundleLocation>REMOTE</bundleLocation>
+    <downloadURL>http://0.0.0.0:8000/sen2vm.zip</downloadURL>
+    <templateparameter>
+      <name>arguments</name>
+      <dataType>java.io.File</dataType>
+      <valueSet/>
+      <parameterType>TemplateParameter</parameterType>
+      <parameters>
+        <parameter>
+          <name>targetLocation</name>
+          <dataType>java.io.File</dataType>
+          <defaultValue>null</defaultValue>
+          <valueSet/>
+          <parameterType>RegularParameter</parameterType>
+        </parameter>
+      </parameters>
+      <template type="simple"/>
+      <outputFile>Command Template</outputFile>
+    </templateparameter>
+    <targetLocation>$HOME/.snap/auxdata</targetLocation>
+    <entryPoint>senv2vm.zip</entryPoint>
+    <updateVariable>SEN2VM_PLUGIN_DIR</updateVariable>
   </linuxBundle>
   <macosxBundle>
     <bundleType>NONE</bundleType>

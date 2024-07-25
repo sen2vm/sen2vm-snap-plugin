@@ -1,13 +1,13 @@
 Manifest-Version: 1.0
 OpenIDE-Module-Specification-Version: 1.0.0
 OpenIDE-Module-Implementation-Version: 1.0.0
-OpenIDE-Module-Name: Sen2vm
+OpenIDE-Module-Name: sen2vm-snap-plugin
 OpenIDE-Module-Display-Category: SNAP Supported Plugins
 AutoUpdate-Show-In-Client: false
 AutoUpdate-Essential-Module: false
 OpenIDE-Module-Java-Dependencies: Java > 11
 OpenIDE-Module-Type: STA
 OpenIDE-Module-Short-Description: Sen2vm
-OpenIDE-Module: org.esa.sen2vm
-OpenIDE-Module-Alias: sen2vm
+OpenIDE-Module: org.esa
+OpenIDE-Module-Alias: sen2vm-snap-plugin
 OpenIDE-Module-Module-Dependencies: org.esa.snap.snap.sta, org.esa.snap.snap.sta.ui

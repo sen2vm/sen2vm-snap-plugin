@@ -1,2 +1,1 @@
-SEN2VM_JAR_EXE
-$configurationFile
+-jar $SEN2VM_JAR $configurationFile
