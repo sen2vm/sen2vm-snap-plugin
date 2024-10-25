@@ -1,0 +1,7 @@
+-jar
+sen2vm-snap-plugin/sen2vm-core-0.0.1-SNAPSHOT.jar
+esa.sen2vm.Sen2VM
+-c
+sen2vm-snap-plugin/configuration_example.json
+-p
+sen2vm-snap-plugin/params.json

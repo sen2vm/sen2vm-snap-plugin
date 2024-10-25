@@ -1,7 +1,7 @@
 <operator>
   <name>org.esa.snap.core.gpf.operators.tooladapter.sen2vm</name>
   <operatorClass>org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterOp</operatorClass>
-  <alias>sen2vm</alias>
+  <alias>sen2vm-snap-plugin</alias>
   <label>geo localization</label>
   <version>1.0.0</version>
   <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
@@ -12,56 +12,101 @@
   <menuLocation>Menu/Optical/Geometric</menuLocation>
   <preprocessTool>false</preprocessTool>
   <writeForProcessing>false</writeForProcessing>
+
   <mainToolFileLocation>$SEN2VM_JRE</mainToolFileLocation>
+
+<!-- 08.24 Bug in Snap Plugin : need to use SEN2VM_PLUGIN_DIR instead of SEN2VM_HOME
   <workingDir>$SEN2VM_HOME</workingDir>
+-->
+  <workingDir>$SEN2VM_PLUGIN_DIR</workingDir>
+
   <template type="file">
-    <file>sen2vm-template.vm</file>
+    <file>sen2vm-snap-plugin-template.vm</file>
   </template>
+
   <variables>
+
     <variable>
       <key>SEN2VM_PLUGIN_DIR</key>
-      <value>$HOME/.snap/auxdata/tool-adapters/sen2vm-snap-plugin/</value>
+<!--
+      <value>$USER_HOME/.snap/auxdata/sen2vm-snap-plugin</value>
+-->
+      <value>$USER_HOME/.snap/auxdata</value>
       <isShared>false</isShared>
     </variable>
+
     <variable>
       <key>SEN2VM_HOME</key>
-      <value>$HOME/.snap/var/cache/</value>
+      <value>$USER_HOME/.snap/var/cache/</value>
       <isShared>false</isShared>
     </variable>
+
     <osvariable>
       <key>SEN2VM_JRE</key>
-      <value>$HOME/esa-snap/jre/bin/java</value>
+      <value>$USER_HOME/esa-snap/jre/bin/java</value>
       <isShared>false</isShared>
       <windows></windows>
-      <linux>$HOME/esa-snap/jre/bin/java</linux>
+      <linux>$USER_HOME/Tools/esa-snap/jre/bin/java</linux>
       <macosx></macosx>
       <isTransient>false</isTransient>
     </osvariable>
+
     <osvariable>
       <key>SEN2VM_JAR</key>
-      <value>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0-SNAPSHOT.jar</value>
+      <value>$SEN2VM_PLUGIN_DIR/sen2vm-snap-plugin/sen2vm-core-1.0-SNAPSHOT.jar</value>
       <isShared>false</isShared>
       <windows></windows>
-      <linux>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0-SNAPSHOT.jar</linux>
+      <linux>$SEN2VM_PLUGIN_DIR/sen2vm-snap-plugin/sen2vm-core-1.0-SNAPSHOT.jar</linux>
       <macosx></macosx>
       <isTransient>false</isTransient>
     </osvariable>
-    <variable>
-      <key>HOME</key>
-      <value>/home/florian</value>
+
+    <osvariable>
+      <key>USERPROFILE</key>
+      <value></value>
       <isShared>false</isShared>
-    </variable>
+      <windows></windows>
+      <linux>$HOME</linux>
+      <macosx>$HOME</macosx>
+      <isTransient>false</isTransient>
+    </osvariable>
+
+    <osvariable>
+      <key>HOME</key>
+      <value>$USERPROFILE</value>
+      <isShared>false</isShared>
+      <windows>$USERPROFILE</windows>
+      <linux></linux>
+      <macosx></macosx>
+      <isTransient>false</isTransient>
+    </osvariable>
+
+    <osvariable>
+      <key>USER_HOME</key>
+      <value>$USERPROFILE</value>
+      <isShared>false</isShared>
+      <windows>$USERPROFILE</windows>
+      <linux>/home/guylaine</linux>
+      <macosx>$HOME</macosx>
+      <isTransient>false</isTransient>
+    </osvariable>
   </variables>
+
   <parameters>
+<!--
     <parameter>
       <name>configurationFile</name>
       <dataType>java.io.File</dataType>
       <description>Configuration Path</description>
       <valueSet/>
+
       <notNull>true</notNull>
       <notEmpty>true</notEmpty>
+
+      <parameterType>RegularParameter</parameterType>
       <parameterType>RegularParameter</parameterType>
     </parameter>
+-->
     <parameter>
       <name>targetProductFile</name>
       <dataType>java.io.File</dataType>
@@ -72,6 +117,7 @@
       <parameterType>RegularParameter</parameterType>
     </parameter>
   </parameters>
+
   <source>user</source>
   <isSystem>false</isSystem>
   <isHandlingOutputName>true</isHandlingOutputName>
@@ -79,10 +125,16 @@
     <bundleType>NONE</bundleType>
     <bundleLocation>REMOTE</bundleLocation>
   </windowsBundle>
+
   <linuxBundle>
     <bundleType>ZIP</bundleType>
+
     <bundleLocation>REMOTE</bundleLocation>
     <downloadURL>http://0.0.0.0:8000/sen2vm.zip</downloadURL>
+<!--
+    <bundleLocation>LOCAL</bundleLocation>
+    <source>/home/guylaine/SEN2VM/sen2vm.zip</source>
+ -->
     <templateparameter>
       <name>arguments</name>
       <dataType>java.io.File</dataType>
@@ -104,10 +156,12 @@
     <entryPoint>senv2vm.zip</entryPoint>
     <updateVariable>SEN2VM_PLUGIN_DIR</updateVariable>
   </linuxBundle>
+
   <macosxBundle>
     <bundleType>NONE</bundleType>
     <bundleLocation>REMOTE</bundleLocation>
   </macosxBundle>
+
   <sourceProductDescriptors/>
   <targetPropertyDescriptors/>
   <numSourceProducts>0</numSourceProducts>
