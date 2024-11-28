@@ -1,7 +1,77 @@
 -jar
 sen2vm-snap-plugin/sen2vm-core-0.0.1-SNAPSHOT.jar
 esa.sen2vm.Sen2VM
--c
-sen2vm-snap-plugin/configuration_example.json
--p
-sen2vm-snap-plugin/params.json
+#if ($configurationFile)
+--config
+$configurationFile
+#end
+#if ($parametersFile)
+--param
+$parametersFile
+#end
+#if ($operation)
+--operation
+$operation
+#end
+#if ($L1B)
+--l1b_product
+$L1B
+#end
+#if ($GIPP)
+--gipp_folder
+$GIPP
+#end
+#if ($dem)
+--dem_folder
+$dem
+#end
+#if ($geoid)
+--geoid_file
+$geoid
+#end
+#if ($step10 && $step20 && $step60)
+--steps
+$step10
+$step20
+$step60
+#end
+#if ($iers)
+--iers_file
+$iers
+#end
+#if ($not_gipp)
+-ngc
+#end
+#if ($not_refining)
+--not_refining
+#end
+#if ($alt)
+--export_altitude
+#end
+#if ($pod)
+--pod_path $pod
+#end
+#if ($output_folder)
+--output_folder
+$output_folder
+#end
+#if ($referential)
+--referential
+$referential
+#end
+#if ($lrx)
+-lrx
+$lrx
+#end
+#if ($lry)
+-lry
+$lry
+#end
+#if ($ulx)
+-ulx
+$ulx
+#end
+#if ($uly)
+-uly
+$uly
+#end

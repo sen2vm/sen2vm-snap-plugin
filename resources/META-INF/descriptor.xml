@@ -53,10 +53,10 @@
 
     <osvariable>
       <key>SEN2VM_JAR</key>
-      <value>$SEN2VM_PLUGIN_DIR/sen2vm-snap-plugin/sen2vm-core-1.0-SNAPSHOT.jar</value>
+      <value>$SEN2VM_PLUGIN_DIR/sen2vm-snap-plugin/sen2vm-core-0.0.1-SNAPSHOT.jar</value>
       <isShared>false</isShared>
       <windows></windows>
-      <linux>$SEN2VM_PLUGIN_DIR/sen2vm-snap-plugin/sen2vm-core-1.0-SNAPSHOT.jar</linux>
+      <linux>$SEN2VM_PLUGIN_DIR/sen2vm-snap-plugin/sen2vm-core-0.0.1-SNAPSHOT.jar</linux>
       <macosx></macosx>
       <isTransient>false</isTransient>
     </osvariable>
@@ -93,20 +93,209 @@
   </variables>
 
   <parameters>
-<!--
-    <parameter>
-      <name>configurationFile</name>
-      <dataType>java.io.File</dataType>
-      <description>Configuration Path</description>
-      <valueSet/>
 
-      <notNull>true</notNull>
-      <notEmpty>true</notEmpty>
+       <parameter>
+           <name>configurationFile</name>
+            <dataType>java.io.File</dataType>
+            <description>Configuration file</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+       </parameter>
+       <parameter>
+           <name>parametersFile</name>
+            <dataType>java.io.File</dataType>
+            <description>Parameters file</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+       </parameter>
 
-      <parameterType>RegularParameter</parameterType>
-      <parameterType>RegularParameter</parameterType>
-    </parameter>
--->
+       <parameter>
+            <name>operation</name>
+            <dataType>java.lang.String</dataType>
+            <description>Type of operation</description>
+            <valueSet>
+                <string>direct</string>
+                <string>inverse</string>
+            </valueSet>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+       <parameter>
+            <name>L1B</name>
+            <dataType>java.io.File</dataType>
+            <defaultValue/>
+            <description>Path to L1B product folder</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>FolderParameter</parameterType>
+       </parameter>
+       <parameter>
+            <name>GIPP</name>
+            <dataType>java.io.File</dataType>
+            <defaultValue/>
+            <description>Path to GIPP folder</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>FolderParameter</parameterType>
+        </parameter>
+
+        <parameter>
+            <name>dem</name>
+            <dataType>java.io.File</dataType>
+            <defaultValue/>
+            <description>Path to DEM folder</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>FolderParameter</parameterType>
+        </parameter>
+        <parameter>
+           <name>geoid</name>
+            <dataType>java.lang.String</dataType>
+            <description>Path to GEOID file</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+       <parameter>
+            <name>step10</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>Steps (pixels) for bands 10m</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+       </parameter>
+       <parameter>
+            <name>step20</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>Steps (pixels) for bands 20m</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+       <parameter>
+            <name>step60</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>Steps (pixels) for bands 60m</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+        <!-- Compulsory parameter for inverse location-->
+         <parameter>
+            <name>output_folder</name>
+            <dataType>java.lang.String</dataType>
+            <description>(compulsory for inverse loc) output folder</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+        <parameter>
+            <name>referential</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>(compulsory for inverse loc) referential</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>lrx</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>(compulsory for inverse loc) Lower Right X (referential unit)</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>lry</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>(compulsory for inverse loc) Lower Right Y (referential unit)</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>ulx</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>(compulsory for inverse loc) Upper Left X (referential unit)</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>uly</name>
+            <dataType>java.lang.String</dataType>
+            <defaultValue/>
+            <description>(compulsory for inverse loc) Upper Left Y (referential unit)</description>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+        <!-- Optional parameter -->
+        <parameter>
+            <name>iers</name>
+            <dataType>java.lang.String</dataType>
+            <description>(optional) Path to IERS file</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>not_gipp</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>(optional) Deactivate the check of GIPP version; if select= "true", if not= "false"</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>not_refining</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>(optional) Deactivate the refining; if select= "true", if not= "false"</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>alt</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>(optional) Export altitude in direct location grid; if select= "true", if not= "false".</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>pod</name>
+            <dataType>java.lang.String</dataType>
+            <description>(optional) Path to POD file/folder</description>
+            <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
     <parameter>
       <name>targetProductFile</name>
       <dataType>java.io.File</dataType>
@@ -116,6 +305,7 @@
       <notEmpty>false</notEmpty>
       <parameterType>RegularParameter</parameterType>
     </parameter>
+
   </parameters>
 
   <source>user</source>
