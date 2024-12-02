@@ -1,4 +1,4 @@
-<operator>
+﻿<operator>
   <name>org.esa.snap.core.gpf.operators.tooladapter.sen2vm</name>
   <operatorClass>org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterOp</operatorClass>
   <alias>sen2vm-snap-plugin</alias>
@@ -196,7 +196,7 @@
          <parameter>
             <name>output_folder</name>
             <dataType>java.lang.String</dataType>
-            <description>(compulsory for inverse loc) output folder</description>
+            <description>(mandatory for inverse loc) output folder</description>
             <defaultValue/>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
@@ -207,7 +207,7 @@
             <name>referential</name>
             <dataType>java.lang.String</dataType>
             <defaultValue/>
-            <description>(compulsory for inverse loc) referential</description>
+            <description>(mandatory for inverse loc) referential</description>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
             <parameterType>RegularParameter</parameterType>
@@ -216,7 +216,7 @@
             <name>lrx</name>
             <dataType>java.lang.String</dataType>
             <defaultValue/>
-            <description>(compulsory for inverse loc) Lower Right X (referential unit)</description>
+            <description>(mandatory for inverse loc) Lower Right X (referential unit)</description>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
             <parameterType>RegularParameter</parameterType>
@@ -225,7 +225,7 @@
             <name>lry</name>
             <dataType>java.lang.String</dataType>
             <defaultValue/>
-            <description>(compulsory for inverse loc) Lower Right Y (referential unit)</description>
+            <description>(mandatory for inverse loc) Lower Right Y (referential unit)</description>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
             <parameterType>RegularParameter</parameterType>
@@ -234,7 +234,7 @@
             <name>ulx</name>
             <dataType>java.lang.String</dataType>
             <defaultValue/>
-            <description>(compulsory for inverse loc) Upper Left X (referential unit)</description>
+            <description>(mandatory for inverse loc) Upper Left X (referential unit)</description>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
             <parameterType>RegularParameter</parameterType>
@@ -243,7 +243,7 @@
             <name>uly</name>
             <dataType>java.lang.String</dataType>
             <defaultValue/>
-            <description>(compulsory for inverse loc) Upper Left Y (referential unit)</description>
+            <description>(mandatory for inverse loc) Upper Left Y (referential unit)</description>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
             <parameterType>RegularParameter</parameterType>
@@ -260,7 +260,7 @@
             <parameterType>RegularParameter</parameterType>
         </parameter>
         <parameter>
-            <name>not_gipp</name>
+            <name>deactivate_gipp_check</name>
             <dataType>java.lang.Boolean</dataType>
             <description>(optional) Deactivate the check of GIPP version; if select= "true", if not= "false"</description>
             <defaultValue/>
@@ -269,9 +269,9 @@
             <parameterType>RegularParameter</parameterType>
         </parameter>
         <parameter>
-            <name>not_refining</name>
+            <name>ignore_refining</name>
             <dataType>java.lang.Boolean</dataType>
-            <description>(optional) Deactivate the refining; if select= "true", if not= "false"</description>
+            <description>(optional) Allows to ignore refining parameters if they are available in the Datastrip Metadata; if present= "true", if not= "false".</description>
             <defaultValue/>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
@@ -291,6 +291,233 @@
             <dataType>java.lang.String</dataType>
             <description>(optional) Path to POD file/folder</description>
             <defaultValue/>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+        <parameter>
+            <name>detector_01</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 01 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_02</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 02 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_03</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 03 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_04</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 04 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_05</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 05 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_06</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 06 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_07</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 07 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_08</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 08 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_09</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 09 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_10</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 10 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_11</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 11 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>detector_12</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Detector 12 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+
+        <parameter>
+            <name>band_01</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 01 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_02</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 02 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_03</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 03 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_04</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 04 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_05</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 05 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_06</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 06 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_07</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 07 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_08</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 08 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_8A</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 8A to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_09</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 09 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_10</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 10 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_11</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 11 to process</description>
+            <defaultValue>true</defaultValue>
+            <notNull>false</notNull>
+            <notEmpty>false</notEmpty>
+            <parameterType>RegularParameter</parameterType>
+        </parameter>
+        <parameter>
+            <name>band_12</name>
+            <dataType>java.lang.Boolean</dataType>
+            <description>Band 12 to process</description>
+            <defaultValue>true</defaultValue>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
             <parameterType>RegularParameter</parameterType>
