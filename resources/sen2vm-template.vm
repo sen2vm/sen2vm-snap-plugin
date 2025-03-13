@@ -1,14 +1,12 @@
 -jar
 sen2vm-snap-plugin/sen2vm-core-0.0.1-SNAPSHOT.jar
 esa.sen2vm.Sen2VM
-#if ($configurationFile)
+#if ($configurationFile && $parametersFile)
 --config
 $configurationFile
-#end
-#if ($parametersFile)
 --param
 $parametersFile
-#end
+#else
 #if ($operation)
 --operation
 $operation
@@ -151,4 +149,5 @@ B11
 #end
 #if ($band_12)
 B12
+#end
 #end

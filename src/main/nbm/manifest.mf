@@ -9,5 +9,5 @@ OpenIDE-Module-Java-Dependencies: Java > 11
 OpenIDE-Module-Type: STA
 OpenIDE-Module-Short-Description: Sen2vm
 OpenIDE-Module: org.esa
-OpenIDE-Module-Alias: sen2vm-snap-plugin
+OpenIDE-Module-Alias: sen2vm
 OpenIDE-Module-Module-Dependencies: org.esa.snap.snap.sta, org.esa.snap.snap.sta.ui
