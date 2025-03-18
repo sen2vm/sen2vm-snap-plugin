@@ -94,7 +94,8 @@
        <parameter>
            <name>configurationFile</name>
             <dataType>java.io.File</dataType>
-            <description>Configuration file</description>
+            <description>The use of the parameters configuration files takes priority over all others</description>
+            <label>Configuration file (priority usage)</label>
             <defaultValue/>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
@@ -103,7 +104,8 @@
        <parameter>
            <name>parametersFile</name>
             <dataType>java.io.File</dataType>
-            <description>Parameters file</description>
+            <description>The use of the parameters configuration files takes priority over all others</description>
+            <label>Parameters file (priority usage)</label>
             <defaultValue/>
             <notNull>false</notNull>
             <notEmpty>false</notEmpty>
