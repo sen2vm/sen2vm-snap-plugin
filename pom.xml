@@ -1,119 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.esa</groupId>
-  <artifactId>sen2vm-snap-plugin</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
-  <name>sen2vm</name>
-  <url>http://www.example.com</url>
-  <packaging>nbm</packaging>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <snap.version>13.0.0-SNAPSHOT</snap.version>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.esa</groupId>
+    <artifactId>sen2vm</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
+    <name>sen2vm</name>
+    <url>https://github.com/sen2vm/sen2vm-snap-plugin</url>
+    <packaging>nbm</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <snap.version>11.0.0</snap.version>
+        <snap-help-system.version>1.0.0</snap-help-system.version>
+        <javahelp.version>2.0.05</javahelp.version>
+    </properties>
+    <repositories>
+        <repository>
+            <id>snap-repo-public</id>
+            <name>Public Maven Repository for SNAP</name>
+            <url>https://nexus.snap-ci.ovh/repository/snap-maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>eu.esa.snap.netbeans</groupId>
+            <artifactId>snap-help-system</artifactId>
+            <version>${snap-help-system.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.esa.snap</groupId>
+            <artifactId>snap-sta</artifactId>
+            <version>${snap.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.esa.snap</groupId>
+            <artifactId>snap-sta-ui</artifactId>
+            <version>${snap.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.esa.snap</groupId>
+            <artifactId>snap-rcp</artifactId>
+            <version>${snap.version}</version>
+        </dependency>
+    </dependencies>
 
-    <netbeans.version>RELEASE113</netbeans.version>
-  </properties>
-  <dependencies>
-    <dependency>
-        <groupId>org.esa.snap</groupId>
-        <artifactId>snap-sta</artifactId>
-        <version>${snap.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.esa.snap</groupId>
-        <artifactId>snap-sta-ui</artifactId>
-        <version>${snap.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.esa.snap</groupId>
-        <artifactId>snap-rcp</artifactId>
-        <version>${snap.version}</version>
-    </dependency>
-    <!-- NetBeans Modules -->
-    <dependency>
-        <groupId>org.netbeans.api</groupId>
-        <artifactId>org-openide-awt</artifactId>
-        <version>${netbeans.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.netbeans.api</groupId>
-        <artifactId>org-openide-util</artifactId>
-        <version>${netbeans.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.netbeans.api</groupId>
-        <artifactId>org-openide-util-lookup</artifactId>
-        <version>${netbeans.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.netbeans.api</groupId>
-        <artifactId>org-netbeans-api-annotations-common</artifactId>
-        <version>${netbeans.version}</version>
-    </dependency>
-  </dependencies>
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>resources</directory>
+            </resource>
+        </resources>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.6.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
 
-  <build>
-    <sourceDirectory>../src/main/java</sourceDirectory>
-    <resources>
-        <resource>
-            <directory>resources</directory>
-        </resource>
-    </resources>
-    <pluginManagement>
         <plugins>
-          <plugin>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>3.6.0</version>
-          </plugin>
+                <plugin>
+                        <groupId>org.apache.netbeans.utilities</groupId>
+                        <artifactId>nbm-maven-plugin</artifactId>
+                        <version>14.0</version>
+                        <extensions>true</extensions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>javax.help</groupId>
+                                <artifactId>javahelp</artifactId>
+                                <version>${javahelp.version}</version>
+                            </dependency>
+                        </dependencies>
+                        <configuration>
+                            <licenseName>GPL 3</licenseName>
+                            <licenseFile>LICENSE.txt</licenseFile>
+                            <keystore>keystore/optical.ks</keystore>
+                            <keystorealias>snap</keystorealias>
+                            <keystorepassword>snap-123</keystorepassword>
+                            <requiresRestart>true</requiresRestart>
+                        </configuration>
+                    </plugin>
+                <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                    <debug>true</debug>
+                    <encoding>UTF-8</encoding>
+                    <excludes>
+                        <exclude>.gitignore</exclude>
+                    </excludes>
+                    <includes>
+                        <include>**/**</include>
+                    </includes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.4.0</version>
+                <configuration>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
-    </pluginManagement>
-      
-    <plugins>
-        <plugin>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.13.0</version>
-            <configuration>
-                <source>11</source>
-                <target>11</target>
-                <debug>true</debug>
-                <encoding>UTF-8</encoding>
-            </configuration>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.4.0</version>
-            <configuration>
-              <archive>
-                <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-              </archive>
-            </configuration>
-        </plugin>
-        <!-- <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>build-helper-maven-plugin</artifactId>
-        </plugin> -->
-        <!-- <plugin>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <version>3.6.1</version>
-        </plugin> -->
-        <plugin>
-            <groupId>org.apache.netbeans.utilities</groupId>
-            <artifactId>nbm-maven-plugin</artifactId>
-            <version>14.0</version>
-            <extensions>true</extensions>
-            <configuration>
-                <licenseName>GPL 3</licenseName>
-                <licenseFile>LICENSE.txt</licenseFile>
-                <requiresRestart>true</requiresRestart>
-            </configuration>
-        </plugin>
-  </plugins>
-  </build>
-  
+    </build>
+
 </project>
