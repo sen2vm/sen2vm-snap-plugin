@@ -74,11 +74,9 @@ Then, double click on  **Sen2VM**
 
 Continue to **Bundled Binaries** and proceed to **Download and Install Now** . Then, click OK and exit from the **Manage External Tools**.
 
-
-
 ![image-20250318171300788](doc/images/install_bundle_menu.png) 
 
-![image-20250321113720087](/home/florian/snap_dev/sen2vm-snap-plugin/doc/images/manager_ext_tools_view_green.png)
+![image-20250321113720087](doc/images/manager_ext_tools_view_green.png)
 
 ### Using
 

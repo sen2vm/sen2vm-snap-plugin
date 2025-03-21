@@ -592,10 +592,6 @@
 
         <bundleLocation>REMOTE</bundleLocation>
         <downloadURL>http://0.0.0.0:8000/sen2vm.zip</downloadURL>
-        <!--
-    <bundleLocation>LOCAL</bundleLocation>
-    <source>/home/guylaine/SEN2VM/sen2vm.zip</source>
- -->
         <templateparameter>
             <name>arguments</name>
             <dataType>java.io.File</dataType>
