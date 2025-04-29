@@ -1,0 +1,153 @@
+-jar
+sen2vm-core/sen2vm-core-0.0.1-SNAPSHOT.jar
+esa.sen2vm.Sen2VM
+#if ($configurationFile && $parametersFile)
+--config
+$configurationFile
+--param
+$parametersFile
+#else
+#if ($operation)
+--operation
+$operation
+#end
+#if ($L1B)
+--l1b_product
+$L1B
+#end
+#if ($GIPP)
+--gipp_folder
+$GIPP
+#end
+#if ($dem)
+--dem_folder
+$dem
+#end
+#if ($geoid)
+--geoid_file
+$geoid
+#end
+#if ($step10 && $step20 && $step60)
+--steps
+$step10
+$step20
+$step60
+#end
+#if ($iers)
+--iers_file
+$iers
+#end
+#if ($deactivate_gipp_check)
+--deactivate_gipp_check
+#end
+#if ($ignore_refining)
+--ignore_refining
+#end
+#if ($export_altitude)
+--export_altitude
+#end
+#if ($pod)
+--pod_path $pod
+#end
+#if ($output_folder)
+--output_folder
+$output_folder
+#end
+#if ($referential)
+--referential
+$referential
+#end
+#if ($lrx)
+-lrx
+$lrx
+#end
+#if ($lry)
+-lry
+$lry
+#end
+#if ($ulx)
+-ulx
+$ulx
+#end
+#if ($uly)
+-uly
+$uly
+#end
+--detectors
+#if ($detector_01)
+01
+#end
+#if ($detector_02)
+02
+#end
+#if ($detector_03)
+03
+#end
+#if ($detector_04)
+04
+#end
+#if ($detector_05)
+05
+#end
+#if ($detector_06)
+06
+#end
+#if ($detector_07)
+07
+#end
+#if ($detector_08)
+08
+#end
+#if ($detector_09)
+09
+#end
+#if ($detector_10)
+10
+#end
+#if ($detector_11)
+11
+#end
+#if ($detector_12)
+12
+#end
+--bands
+#if ($band_01)
+B01
+#end
+#if ($band_02)
+B02
+#end
+#if ($band_03)
+B03
+#end
+#if ($band_04)
+B04
+#end
+#if ($band_05)
+B05
+#end
+#if ($band_06)
+B06
+#end
+#if ($band_07)
+B07
+#end
+#if ($band_8A)
+B8A
+#end
+#if ($band_08)
+B08
+#end
+#if ($band_09)
+B09
+#end
+#if ($band_10)
+B10
+#end
+#if ($band_11)
+B11
+#end
+#if ($band_12)
+B12
+#end
+#end
