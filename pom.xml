@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.esa</groupId>
     <artifactId>sen2vm</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
     <name>sen2vm</name>
     <url>https://github.com/sen2vm/sen2vm-snap-plugin</url>
@@ -18,6 +18,7 @@
         <snap.version>11.0.0</snap.version>
         <snap-help-system.version>1.0.0</snap-help-system.version>
         <javahelp.version>2.0.05</javahelp.version>
+        <gpg.skip>true</gpg.skip>
     </properties>
     <repositories>
         <repository>
@@ -43,11 +44,6 @@
         <dependency>
             <groupId>org.esa.snap</groupId>
             <artifactId>snap-sta</artifactId>
-            <version>${snap.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-sta-ui</artifactId>
             <version>${snap.version}</version>
         </dependency>
         <dependency>
@@ -123,5 +119,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+    <repository>
+        <id>github</id>
+        <name>GitHub Packages</name>
+        <url>https://maven.pkg.github.com/sen2vm/sen2vm-snap-plugin</url>
+    </repository>
+    </distributionManagement>
 
 </project>
