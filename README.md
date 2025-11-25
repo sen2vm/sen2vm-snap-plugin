@@ -8,11 +8,7 @@ Sen2VM SNAP plugin that calls the Sen2VM-Core standalone jar. For more details a
 * create zip archive with the following structure
 ```
 sen2vm.zip 
-  src/main/resources/orekit-data/ 
-  sen2vm-core/
-  sen2vm-core/sen2vm-core-1.0.0.jar 
-  sen2vm-core/configuration_example.json 
-  sen2vm-core/params.json 
+  sen2vm-core-1.0.0.jar
 ```
 
 ### Prebuilt plugin
