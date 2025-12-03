@@ -3,7 +3,7 @@
     <operatorClass>org.esa.snap.core.gpf.operators.tooladapter.ToolAdapterOp</operatorClass>
     <alias>Sen2VM</alias>
     <label>Sen2VM</label>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to
         L1B product images</description>
     <authors>CSGroup</authors>
@@ -46,10 +46,10 @@
 
         <osvariable>
             <key>SEN2VM_JAR</key>
-            <value>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0.0.jar</value>
+            <value>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0.1.jar</value>
             <isShared>false</isShared>
             <windows></windows>
-            <linux>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0.0.jar</linux>
+            <linux>$SEN2VM_PLUGIN_DIR/sen2vm-core-1.0.1.jar</linux>
             <macosx></macosx>
             <isTransient>false</isTransient>
         </osvariable>
