@@ -8,11 +8,7 @@ Sen2VM SNAP plugin that calls the Sen2VM-Core standalone jar. For more details a
 * create zip archive with the following structure
 ```
 sen2vm.zip 
-  src/main/resources/orekit-data/ 
-  sen2vm-core/
-  sen2vm-core/sen2vm-core-1.0.0.jar 
-  sen2vm-core/configuration_example.json 
-  sen2vm-core/params.json 
+  sen2vm-core-1.0.1.jar
 ```
 
 ### Prebuilt plugin
@@ -49,7 +45,7 @@ Otherwise, you can choose local installation in the SNAP menu bundle installatio
 
 Continue by  **Downloaded → Add Plugins** and search for the nbm file in:
 
-sen2vm-snap-plugin/target/sen2vm-snap-plugin-1.0.0.nbm 
+sen2vm-snap-plugin/target/sen2vm-snap-plugin-1.0.1.nbm 
 
 
 

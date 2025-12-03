@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.esa</groupId>
     <artifactId>sen2vm</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Sentinel-2 Viewing Model tool goal is to compute and add geolocation information to L1B product images</description>
     <name>sen2vm</name>
     <url>https://github.com/sen2vm/sen2vm-snap-plugin</url>
